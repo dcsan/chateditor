@@ -2,6 +2,6 @@ function saveStory() {
     console.log("edited");
 }
 
-function loadStory() {
-    console.log("loadStory");
+function loadStory(a, b, c) {
+    console.log("loadStory", a, b, c);
 }

@@ -8,7 +8,7 @@
     <body>
 
     <div class="pure-menu pure-menu-horizontal">
-        <a href="#" class="pure-menu-heading pure-menu-link">BRAND</a>
+        <a href="#" class="pure-menu-heading pure-menu-link">RIBOT.editor</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"><a href="/" class="pure-menu-link">Top</a></li>
             <li class="pure-menu-item"><a href="/editor" class="pure-menu-link">Editor</a></li>
@@ -19,7 +19,9 @@
     <div class="pure-menu side-menu">
       <ul class="pure-menu-list">
         <% stories.forEach(function(story) { %>
-            <%- `<li class='pure-menu-item'><a onClick='loadStory()' id='${story.cname}' href="#" class="pure-menu-link">${story.cname}</a></li>` %>
+            <li class="pure-menu-item">
+            <%- `<a onClick="loadStory('${story.cname}')" href="#${story.cname}" class="pure-menu-link">${story.cname}</a>` %>
+            </li>
         <% }); %>
       </ul>
     </div>
@@ -34,10 +36,10 @@
     <br/>
     <button onClick='saveStory()' class="button-warning pure-button editor-save-button">A Pure Button</button>
 
-    <script src="/js/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/ace/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
     <script>
         var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/twilight");
+        editor.setTheme("ace/theme/monokai");
         editor.session.setMode("ace/mode/javascript");
     </script>
 
