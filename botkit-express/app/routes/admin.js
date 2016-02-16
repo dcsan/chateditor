@@ -31,4 +31,15 @@ module.exports = function(app) {
         });
     });
 
+
+    app.get('/loadStory', function(req, res) {
+        let cname = req.params.cname;
+        slack.controller.storage.stories.get(cname, function(err, story) {
+            if (err) { return; }
+            console.log('story', story);
+            res.json(story);
+        });
+    });
+
+
 };
