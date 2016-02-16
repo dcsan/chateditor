@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^2.2.0",
+    "libxmljs": "^0.17.1",
+    "xml": "^1.0.1",
     "xml2js": "^0.4.16"
   }
 }
