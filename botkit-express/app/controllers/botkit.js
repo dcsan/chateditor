@@ -1,9 +1,12 @@
-//CONFIG===============================================
+// CONFIG===============================================
 
 /* Uses the slack button feature to offer a real time bot to multiple teams */
 var Botkit = require('botkit');
-var mongoUri = process.env.MONGO_URI || 'mongodb://localhost/botkit_express_demo'
-var botkit_mongo_storage = require('../../config/botkit_mongo_storage')({mongoUri: mongoUri})
+
+const mongoUri = process.env.MONGO_URI || 'mongodb://localhost/botkit_express_demo';
+const config = {mongoUri: mongoUri};
+var botkit_mongo_storage = require('../../config/mongorita_storage')(config);
+
 
 if (!process.env.SLACK_ID || !process.env.SLACK_SECRET || !process.env.PORT) {
   console.log('Error: Specify SLACK_ID SLACK_SECRET and PORT in environment');
@@ -12,15 +15,15 @@ if (!process.env.SLACK_ID || !process.env.SLACK_SECRET || !process.env.PORT) {
 
 var controller = Botkit.slackbot({
   storage: botkit_mongo_storage
-})
+});
 
-exports.controller = controller
+exports.controller = controller;
 
-//CONNECTION FUNCTIONS=====================================================
-exports.connect = function(team_config){
+// CONNECTION FUNCTIONS=====================================================
+exports.connect = function(team_config) {
   var bot = controller.spawn(team_config);
   controller.trigger('create_bot', [bot, team_config]);
-}
+};
 
 // just a simple way to make sure we don't
 // connect to the RTM twice for the same team
@@ -30,13 +33,12 @@ function trackBot(bot) {
   _bots[bot.config.token] = bot;
 }
 
-controller.on('create_bot',function(bot,team) {
+controller.on('create_bot', function(bot, team) {
 
   if (_bots[bot.config.token]) {
     // already online! do nothing.
-    console.log("already online! do nothing.")
-  }
-  else {
+    console.log("already online! do nothing.");
+  } else {
     bot.startRTM(function(err) {
 
       if (!err) {
