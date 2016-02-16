@@ -18,16 +18,11 @@
 
     <div class="pure-menu side-menu">
       <ul class="pure-menu-list">
-          <% for(var i=0; i<stories.length; i++) {%>
-             <li><%= stories[i].cname %></li>
-          <% } %>
-          <li class="pure-menu-item"><a onClick='loadStory()' href="#" class="pure-menu-link">Flickr</a></li>
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Messenger</a></li>
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sports</a></li>
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Finance</a></li>
+        <% stories.forEach(function(story) { %>
+            <%- `<li class='pure-menu-item'><a onClick='loadStory()' id='${story.cname}' href="#" class="pure-menu-link">${story.cname}</a></li>` %>
+        <% }); %>
       </ul>
     </div>
-
 
     <pre id="editor">function foo(items) {
     var i;
@@ -37,7 +32,7 @@
     }</pre>
 
     <br/>
-    <button onClick='saveStory()' class="button-warning pure-button">A Pure Button</button>
+    <button onClick='saveStory()' class="button-warning pure-button editor-save-button">A Pure Button</button>
 
     <script src="/js/ace.js" type="text/javascript" charset="utf-8"></script>
     <script>

@@ -1,0 +1,94 @@
+{
+  "$": {
+    "name": "hotel",
+    "startnode": "1",
+    "creator": "Twine",
+    "creator-version": "2.0.10",
+    "ifid": "2CB0D641-0FE5-497A-90F3-A4D025E94162",
+    "format": "Harlowe",
+    "options": ""
+  },
+  "style": [
+    {
+      "$": {
+        "role": "stylesheet",
+        "id": "twine-user-stylesheet",
+        "type": "text/twine-css"
+      }
+    }
+  ],
+  "script": [
+    {
+      "$": {
+        "role": "script",
+        "id": "twine-user-script",
+        "type": "text/twine-javascript"
+      }
+    }
+  ],
+  "tw-passagedata": [
+    {
+      "_": "Welcome to our hotel! Would you like to [[check in]]?",
+      "$": {
+        "pid": "1",
+        "name": "Welcome",
+        "tags": "",
+        "position": "100,100"
+      }
+    },
+    {
+      "_": "Excellent. Can I have your passport please?\n\n[[I don’t have it with me]]\n[[Here you go|passport]]",
+      "$": {
+        "pid": "2",
+        "name": "check in",
+        "tags": "",
+        "position": "300,100"
+      }
+    },
+    {
+      "_": "You give the hotel manager your passport.\n\n<img src='images/passport.jpg'/>\n\nhotel manager: [[Thank you!]]",
+      "$": {
+        "pid": "3",
+        "name": "passport",
+        "tags": "",
+        "position": "300,250"
+      }
+    },
+    {
+      "_": "Double-click this passage to edit it.",
+      "$": {
+        "pid": "4",
+        "name": "I don’t have it with me",
+        "tags": "",
+        "position": "500,100"
+      }
+    },
+    {
+      "_": "hotelman: Thank you! We have room 507 available, it's a smoking room. Is that OK?\n\n[[I want a non-smoking room]]\n[[that's fine]]",
+      "$": {
+        "pid": "5",
+        "name": "Thank you!",
+        "tags": "",
+        "position": "300,400"
+      }
+    },
+    {
+      "_": "I want a non-smoking room please!",
+      "$": {
+        "pid": "6",
+        "name": "I want a non-smoking room",
+        "tags": "",
+        "position": "200.0001,550"
+      }
+    },
+    {
+      "_": "Double-click this passage to edit it.",
+      "$": {
+        "pid": "7",
+        "name": "that's fine",
+        "tags": "",
+        "position": "350,550"
+      }
+    }
+  ]
+}

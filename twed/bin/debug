@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+DEBUG=*,-not-me nodemon app.js

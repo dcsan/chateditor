@@ -1,0 +1,4 @@
+# webpack
+http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup
+
+https://github.com/christianalfoni/webpack-express-boilerplate
