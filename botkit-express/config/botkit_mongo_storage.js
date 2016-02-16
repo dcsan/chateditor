@@ -2,14 +2,15 @@ var db = require('monk');
 /**
  * botkit-storage-mongo - MongoDB driver for Botkit
  *
- * @param  {Object} config
- * @return {Object}
+ * @param  {Object} config Mongo config
+ * @return {Object} query result
  */
 module.exports = function(config) {
     console.log('mongo config', config);
 
-    if (!config || !config.mongoUri)
+    if (!config || !config.mongoUri) {
         throw new Error('Need to provide mongo address.');
+    }
 
     var Teams = db(config.mongoUri).get('teams'),
         Users = db(config.mongoUri).get('users'),
@@ -18,7 +19,7 @@ module.exports = function(config) {
 
     var unwrapFromList = function(cb) {
         return function(err, data) {
-            if (err) return cb(err);
+            if (err) { return cb(err); }
             cb(null, data);
         };
     };
@@ -28,6 +29,10 @@ module.exports = function(config) {
         stories: {
             get: function(id, cb) {
                 Stories.findOne({id: id}, unwrapFromList(cb));
+            },
+            findOne: function(query, cb) {
+                console.log('stories.findOne', query);
+                Stories.findOne(query, unwrapFromList(cb));
             },
             save: function(data, cb) {
                 Stories.findAndModify({

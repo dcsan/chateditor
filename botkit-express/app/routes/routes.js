@@ -6,16 +6,16 @@ var slack            = require('../controllers/botkit');
 // frontend routes =========================================================
 module.exports = function(app) {
 
-    //public pages=============================================
-    //root
+    // public pages=============================================
+    // root
     app.get('/', function(req, res) {
-        console.log("root")
+        console.log("root");
         res.render('root'); // load view/root.html file
     });
 
-    //new user creation - redirection from Slack
+    // new user creation - redirection from Slack
     app.get('/new', function(req, res) {
-        console.log("================== START TEAM REGISTRATION ==================")
+        console.log("================== START TEAM REGISTRATION ==================");
         //temporary authorization code
         var auth_code = req.query.code
 
