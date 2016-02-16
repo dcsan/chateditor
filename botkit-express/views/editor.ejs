@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+    <link rel="stylesheet" href="/css/pure-min.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/reload/reload.js"></script>
+    <script src="/js/editor.js"></script>
+
+    <body>
+
+    <div class="pure-menu pure-menu-horizontal">
+        <a href="#" class="pure-menu-heading pure-menu-link">BRAND</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="/" class="pure-menu-link">Top</a></li>
+            <li class="pure-menu-item"><a href="/editor" class="pure-menu-link">Editor</a></li>
+            <li class="pure-menu-item"><a href="/stories" class="pure-menu-link">Stories</a></li>
+        </ul>
+    </div>
+
+    <div class="pure-menu side-menu">
+      <ul class="pure-menu-list">
+          <% for(var i=0; i<stories.length; i++) {%>
+             <li><%= stories[i].cname %></li>
+          <% } %>
+          <li class="pure-menu-item"><a onClick='loadStory()' href="#" class="pure-menu-link">Flickr</a></li>
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Messenger</a></li>
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sports</a></li>
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Finance</a></li>
+      </ul>
+    </div>
+
+
+    <pre id="editor">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+        alert("Ace Rocks " + items[i]);
+    }
+    }</pre>
+
+    <br/>
+    <button onClick='saveStory()' class="button-warning pure-button">A Pure Button</button>
+
+    <script src="/js/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/twilight");
+        editor.session.setMode("ace/mode/javascript");
+    </script>
+
+  </body>
+</html>

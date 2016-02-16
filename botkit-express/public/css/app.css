@@ -1,0 +1,54 @@
+
+.side-menu {
+    position: absolute;
+    top: 50px;
+    background-color: #000;
+    color: #fff;
+    width: 150px;
+
+    /* To limit the menu width to the content of the menu: */
+    /*display: inline-block;*/
+    /* Or set the width explicitly: */
+    /* width: 10em; */
+}
+
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+/* editor */
+body {
+    overflow: hidden;
+}
+#editor {
+    margin: 0;
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    bottom: 50px;
+    right: 2px;
+    z-index: 10;
+    border: 1px solid #444;
+}
