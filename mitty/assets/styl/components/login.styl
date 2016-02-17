@@ -1,0 +1,151 @@
+@require('../common')
+
+.login
+  text-align: left
+  min-height: 500px
+
+.login-header
+  background: linear-gradient(top, #8b8b89, 100% #CECECE)
+  //border: 3px solid
+  border-radius: 7px 7px 0 0
+  margin: -4px -1px 0
+  padding: 1px
+  
+.login-header-inside
+  background: linear-gradient(top, #b2b2b0, 100% #f3f3f3)
+  border-radius: 6px 6px 0 0
+  height: 310px
+  padding: 0.1rem
+  position: relative
+
+.login-header h3
+  font-size: 1.5rem
+  line-height: 1.5rem
+  line-height: 2rem
+  font-weight: bold
+  padding: 1rem 0rem 0rem 3rem
+
+.login-header-inside-image
+  position: absolute
+  left: 1rem
+  right: 0rem
+  height: 300px
+
+.login-header-inside-image--login
+  background: url(/img/login_2.png) bottom center no-repeat
+  background-size: contain
+  bottom: 0px
+  right: 1rem
+  height: 270px
+
+.login-header-inside-image--reset
+  background: url(/img/reset.png) top center no-repeat
+  background-size: contain
+  top: 5px
+  left: -2rem
+
+.login-header-inside-image--forgot
+  left: 3rem
+  background: url(/img/tsun_forgot.png) bottom center no-repeat
+  background-size: contain
+  bottom: 5px
+  height: 260px
+
+.login-message
+  margin: 0.5rem 1rem 1rem
+  text-align: center
+
+.login-message--error
+  color: error_color
+
+.login-message--info
+  color: info_color
+  
+.login-message--success
+  color: success_color
+
+
+@media screen and (max-width: 40.063em)
+  h3.login-header-inside--login
+    padding-left: 1rem
+    
+  .login-header-inside-image--login
+    left: 1rem
+    right: 1rem
+
+  .login-header-inside-image--reset
+    left: 0rem
+
+  .login-header-inside-image--forgot
+    left: 7rem
+    
+  h3.login-header-inside--forgot,
+  h3.login-header-inside--reset
+    padding: 1rem 0rem 0rem 2rem
+    width: 10rem
+
+.login-form,
+.forgot-form,
+.signup-form
+  max-width: 500px
+  margin: 2rem auto 3rem
+
+.login-errors
+  margin: 1rem 1rem 0 1rem
+  color: #941616
+  text-align: center
+  
+.login-button
+  padding-top: 0.5rem !important
+  padding-bottom: 0.5rem !important
+
+.login-alt
+  padding-right: 1.1rem !important
+  line-height: 2rem
+  font-size: 0.9rem
+  text-align: right
+
+.login-meta,
+.signup-meta
+  border-top: 1px solid #CECECE
+  font-size: 0.7rem
+  margin-top: 1.5rem
+  padding-top: 0.7rem
+  text-align: center
+
+.login-meta a,
+.signup-meta a
+  display: block
+  line-height: 1.5rem
+  
+.login-disclaimer
+  font-size: 0.8rem
+  text-align: center
+
+.signup
+  padding: 0
+
+.signup-header
+  padding: 0
+  background: #404041
+  border-bottom: 1px solid #303031
+  color: #FFF
+  border-radius: 7px 7px 0px 0px
+  margin: -4px -1px 0
+  
+.signup-header h3
+  padding-top: 0.5rem
+  color: #FFF
+  font-size: 1.2rem
+  text-align: center
+  line-height: 1.3rem
+
+.signup-alt
+  padding-right: 1.0rem !important
+  text-align: right
+
+.signup-span
+  font-size: 0.7rem
+  color: sub_color
+  padding-left: 0.3rem
+  display: inline-block

@@ -1,0 +1,52 @@
+
+@require "nib"
+
+@require "utils/mixins"
+
+body
+  margin: 0px auto
+  background-color: #EAEAEA !important
+  font-family: "Open Sans"
+
+.container
+  background-color: #FAFAFA
+
+.container--admin
+  height: 100%
+
+.page-loader
+  display: table
+  position: absolute;
+  width: 100%
+  height: 100%
+  left: 0
+  
+  .spinner
+    display: table-cell
+    text-align: center
+    vertical-align: middle
+
+.columns-centered
+  text-align: center
+
+@import "head"
+
+@import "content"
+
+@import "footer"
+
+@import "components/login"
+
+@import "components/profile"
+
+@import "components/generic"
+
+@import "components/admin/settings"
+
+@import "assets/styl/utils/spinner"
+
+@import "libs/normalize"
+
+@import "libs/foundation"
+
+@import "libs/font-awesome"

@@ -5,7 +5,11 @@ let fs = require('fs');
 let path = require('path');
 let debug = require('debug')('parser');
 
-let parser = new xml2js.Parser();
+let xmlOptions = {
+    trim: true,
+    emptyTag: 'empty'
+};
+let parser = new xml2js.Parser(xmlOptions);
 
 
 const twinePath = path.join(__dirname, '../Twine/Stories/');
@@ -59,7 +63,6 @@ const formatCode = function(text, topicName) {
 }
 
 
-let options = {};
 
 parser.parseString(xml, function(err, obj) {
     if (err) {
