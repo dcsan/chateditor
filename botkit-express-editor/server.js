@@ -28,7 +28,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing url encoded
 app.set('view engine', 'ejs');
 
 let Stories = require('./app/models/Stories');
-Stories.init();
 
 // routes
 require('./app/routes/routes')(app);

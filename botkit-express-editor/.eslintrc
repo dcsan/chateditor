@@ -326,6 +326,10 @@
 		"react/prop-types": 2,
 		"react/react-in-jsx-scope": 0,
 		"react/self-closing-comp": 1,
-		"react/wrap-multilines": 1
+		"react/wrap-multilines": 1,
+
+    /* dc adds */
+    /* http://eslint.org/docs/rules/require-yield */
+    "require-yield": 1
 	}
 }

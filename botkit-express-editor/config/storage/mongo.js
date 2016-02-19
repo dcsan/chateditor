@@ -1,6 +1,11 @@
-"use strict";
+'use strict';
 
-var db = require('monk');
+var MongoClient = require('mongodb'),
+    co = require('co'),
+    debug = require('debug')('mongo-storage')
+    ;
+
+let Storage = {};
 
 /**
  * botkit-storage-mongo - MongoDB driver for Botkit
@@ -8,17 +13,19 @@ var db = require('monk');
  * @param  {Object} config Mongo config
  * @return {Object} query result
  */
-module.exports = function(config) {
+Storage.connect = function(config) {
+    // let db = MongoStorage.init(config);
+    let db = MongoClient.connect('mongodb://localhost:27017/mongo-drivers');
+    return db;
+};
 
-    // console.log('mongo config', config);
+Storage.setup = function(db) {
+    // debug('setup with', db);
 
-    if (!config || !config.mongoUri) {
-        throw new Error('Need to provide mongo address.');
-    }
-
-    var Teams = db(config.mongoUri).get('teams'),
-        Users = db(config.mongoUri).get('users'),
-        Channels = db(config.mongoUri).get('channels');
+    var Teams = db.collection('teams'),
+        Users = db.collection('users'),
+        Channels = db.collection('channels'),
+        Stories = db.collection('stories');
 
     var unwrapFromList = function(cb) {
         return function(err, data) {
@@ -28,27 +35,6 @@ module.exports = function(config) {
     };
 
     var storage = {
-
-        // stories: {
-        //     get: function(id, cb) {
-        //         Stories.findOne({id: id}, unwrapFromList(cb));
-        //     },
-        //     findOne: function(query, cb) {
-        //         console.log('stories.findOne', query);
-        //         Stories.findOne(query, unwrapFromList(cb));
-        //     },
-        //     save: function(data, cb) {
-        //         Stories.findAndModify({
-        //             id: data.id
-        //         }, data, {
-        //             upsert: true,
-        //             new: true
-        //         }, cb);
-        //     },
-        //     all: function(cb) {
-        //         Stories.find({}, cb);
-        //     }
-        // },
 
         teams: {
             get: function(id, cb) {
@@ -99,6 +85,8 @@ module.exports = function(config) {
             }
         }
     };
-    //
+
     return storage;
-};
+}
+
+module.exports = Storage;
